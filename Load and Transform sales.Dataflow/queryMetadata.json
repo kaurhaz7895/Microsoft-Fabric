@@ -1,0 +1,33 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "Load and Transform orders",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "0baf712b-6405-439a-9483-c15f0fa3a6c5",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "sales": {
+      "queryId": "9a4b4f71-57d4-4574-893e-b0db9889fcf2",
+      "queryName": "sales",
+      "loadEnabled": false
+    },
+    "sales csv_DataDestination": {
+      "queryId": "ed251435-8982-43b3-8d90-217c2c27dcc1",
+      "queryName": "sales csv_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"bf8b756b-f821-4ae2-97cc-61bc237b3610\",\"DatasourceId\":\"a01ead34-f612-4752-974f-4f40da7c3cb0\"}"
+    }
+  ]
+}
