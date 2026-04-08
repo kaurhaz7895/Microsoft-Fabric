@@ -1,0 +1,32 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "Dataflow 1",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "f1234d32-c3d7-476b-8df6-059fd9b45bd7",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Business": {
+      "queryId": "19b13047-7850-46b6-bed2-32562e485312",
+      "queryName": "Business",
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"bf8b756b-f821-4ae2-97cc-61bc237b3610\",\"DatasourceId\":\"a196c68e-e94e-4813-b42c-fe44dd7cd340\"}"
+    },
+    {
+      "path": "https://raw.githubusercontent.com/MicrosoftLearning/mslearn-fabric/refs/heads/main/Allfiles/Labs/22a/Store.csv",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"bf8b756b-f821-4ae2-97cc-61bc237b3610\",\"DatasourceId\":\"78e95830-7aa4-4603-9970-1b728482fdd3\"}"
+    }
+  ]
+}

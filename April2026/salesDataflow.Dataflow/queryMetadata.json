@@ -1,0 +1,33 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "salesDataflow",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "sales csv": {
+      "queryId": "06b175dc-0288-43a0-9601-32261a9b48b3",
+      "queryName": "sales csv",
+      "loadEnabled": false
+    },
+    "sales csv_DataDestination": {
+      "queryId": "3909fb14-8bce-4b2b-8b44-66adefd967e0",
+      "queryName": "sales csv_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "sales csv_DataDestinationTransform": {
+      "queryId": "b15118f4-cd3b-4329-a68f-aa1330a1673c",
+      "queryName": "sales csv_DataDestinationTransform",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"bf8b756b-f821-4ae2-97cc-61bc237b3610\",\"DatasourceId\":\"a196c68e-e94e-4813-b42c-fe44dd7cd340\"}"
+    }
+  ]
+}
