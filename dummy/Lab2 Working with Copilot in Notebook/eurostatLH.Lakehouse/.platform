@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "eurostatLH"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9072bb7d-3dd8-886a-459a-62c89775fcf3"
+  }
+}
