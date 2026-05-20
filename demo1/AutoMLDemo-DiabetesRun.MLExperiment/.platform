@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MLExperiment",
+    "displayName": "AutoMLDemo-DiabetesRun"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ac8c9602-4267-a8e8-4c4d-61fa967ee5ab"
+  }
+}

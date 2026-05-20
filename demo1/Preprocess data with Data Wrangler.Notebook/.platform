@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Preprocess data with Data Wrangler"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cd072199-f541-8c85-40e6-add429ad2e1f"
+  }
+}
