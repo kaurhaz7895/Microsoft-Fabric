@@ -1,0 +1,28 @@
+table 'Another Time Calcs'
+	lineageTag: 319fd997-6295-4c63-a413-8ffa482352eb
+
+	calculationGroup
+		precedence: 1
+
+		calculationItem 'Calc YTD' = CALCULATE(SELECTEDMEASURE(), DATESYTD(dimdate[FullDate]))
+
+		calculationItem 'Calc PY' = CALCULATE(SELECTEDMEASURE(), SAMEPERIODLASTYEAR(dimdate[FullDate]))
+
+	column 'Calculation group column'
+		dataType: string
+		lineageTag: 7477324c-21ff-403f-9733-a51e466c858a
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		formatString: 0
+		lineageTag: bb6058e2-c9f6-4684-8825-8f3b2002411a
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

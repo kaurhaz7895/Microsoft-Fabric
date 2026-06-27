@@ -1,0 +1,354 @@
+table factsales
+	lineageTag: 7e73d080-df48-454f-a3c3-b135d261b69d
+	sourceLineageTag: [dbo].[factsales]
+
+	measure 'Total Sales' = SUM(FactSales[SalesAmount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: My base measure
+		lineageTag: 4829c0ec-c731-40ec-b630-4eb090e8e20e
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Cost' = SUM(FactSales[TotalCost])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: My base measure
+		lineageTag: f4ff664c-e3b3-4782-81be-a6e13d5c1fe3
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure Profit = ```
+			
+			 VAR TotalRevenue = [Total Sales]
+			 VAR TotalExpense = [Total Cost]
+			 RETURN
+			     TotalRevenue - TotalExpense
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: My base measure
+		lineageTag: 8d3cc142-f670-4c3c-8f7e-7637e6c3f320
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Profit Margin' = ```
+			
+			 VAR ProfitAmount = [Profit]
+			 VAR TotalRevenue = [Total Sales]
+			 RETURN
+			     DIVIDE(ProfitAmount, TotalRevenue)
+			```
+		displayFolder: My base measure
+		lineageTag: e69a5235-ff58-459f-a25d-20ff11d126f1
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sales YTD' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    DATESYTD(dimdate[FullDate])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Sales Time Intelligence Measures
+		lineageTag: 55a4c7c9-4bb4-48f9-8276-70bbc82a5a97
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales QTD' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    DATESQTD(dimdate[FullDate])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Sales Time Intelligence Measures
+		lineageTag: a5050326-19f8-4e86-83d4-45eaec35d927
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales MTD' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    DATESMTD(dimdate[FullDate])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Sales Time Intelligence Measures
+		lineageTag: da2e7ea1-59e6-49db-bbf8-29366b12cabc
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales PY' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    SAMEPERIODLASTYEAR(dimdate[FullDate])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Sales Time Intelligence Measures
+		lineageTag: 9c22d3bd-45b2-44fc-9989-74c64cf5c31e
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales YoY Growth' =
+			
+			[Total Sales] - [Sales PY]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Sales Time Intelligence Measures
+		lineageTag: 35882aee-7559-4631-9e9a-6d31010693ee
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Profit YTD' =
+			
+			CALCULATE(
+			    [Profit],
+			    DATESYTD(dimdate[FullDate])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Profit Time Intelligence Measures
+		lineageTag: 00049347-4f17-4b1c-8cb2-8a7e3306a9ea
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Profit QTD' =
+			
+			CALCULATE(
+			    [Profit],
+			    DATESQTD(dimdate[FullDate])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Profit Time Intelligence Measures
+		lineageTag: 17c50316-ec38-419b-a777-332fa57a0ff4
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Profit MTD' =
+			
+			CALCULATE(
+			    [Profit],
+			    DATESMTD(dimdate[FullDate])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Profit Time Intelligence Measures
+		lineageTag: cb47b614-766e-4437-96af-61042a954447
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Profit PY' =
+			
+			CALCULATE(
+			    [Profit],
+			    SAMEPERIODLASTYEAR(dimdate[FullDate])
+			)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Profit Time Intelligence Measures
+		lineageTag: 13d86f89-c7f6-4473-9e46-d56626babdc3
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Profit YoY Growth' =
+			
+			[Profit] - [Profit PY]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Profit Time Intelligence Measures
+		lineageTag: 93ab5151-9504-4dc6-834b-c1aa93fab652
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Profit YoY %' =
+			
+			DIVIDE(
+			    [Profit YoY Growth],
+			    [Profit PY]
+			)
+		displayFolder: Profit Time Intelligence Measures
+		lineageTag: e1d3ccb6-e34f-4e79-849a-a66cb18e155d
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sales YoY %' =
+			
+			DIVIDE(
+			    [Sales YoY Growth],
+			    [Sales PY]
+			)
+		displayFolder: Sales Time Intelligence MEasures
+		lineageTag: fa829c90-3f65-4360-99b2-e026b963a161
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesOrderNumber
+		dataType: string
+		lineageTag: addd9373-b4ff-429d-8ebe-a12c00eb6f85
+		sourceLineageTag: SalesOrderNumber
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 64686603-bebe-48f3-83ea-927b7688ab71
+		sourceLineageTag: SalesOrderLineNumber
+		summarizeBy: sum
+		sourceColumn: SalesOrderLineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 966c8efa-35df-4474-ae87-a76eaf1665aa
+		sourceLineageTag: OrderDateKey
+		summarizeBy: none
+		sourceColumn: OrderDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 476fd9ec-d3eb-467b-937d-b75dd3da323d
+		sourceLineageTag: ShipDateKey
+		summarizeBy: count
+		sourceColumn: ShipDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6495aa12-9dca-4890-bdd9-22d0ff7cbe9b
+		sourceLineageTag: CustomerKey
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fa77a6b-299d-4d25-b660-3bc82d77847b
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: fdef7f2a-5600-4a50-aa10-2a9ad5cff33d
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: d7926375-7e0d-4eed-92a6-251e00392828
+		sourceLineageTag: UnitPrice
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalesAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 375b12c6-f765-4aaa-9eeb-ca41fe5dbeb5
+		sourceLineageTag: SalesAmount
+		summarizeBy: sum
+		sourceColumn: SalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 63b1cfb7-9de9-49f9-b087-d7379c442908
+		sourceLineageTag: TotalCost
+		summarizeBy: sum
+		sourceColumn: TotalCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition factsales = entity
+		mode: directLake
+		source
+			entityName: factsales
+			expressionSource: 'DirectLake - SalesLakehouse'
+

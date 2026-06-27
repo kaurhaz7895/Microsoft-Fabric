@@ -1,0 +1,73 @@
+table 'Time Calculations'
+	lineageTag: e7e6aa06-63bd-4102-90fc-83e990f6325e
+
+	calculationGroup
+
+		calculationItem Current = SELECTEDMEASURE()
+
+		calculationItem Year-to-Date = ```
+				
+				 CALCULATE(
+				     SELECTEDMEASURE(),
+				     DATESYTD('DimDate'[FullDate])
+				 )
+				```
+
+		calculationItem Quarter-to-Date = ```
+				
+				 CALCULATE(
+				     SELECTEDMEASURE(),
+				     DATESQTD('DimDate'[FullDate])
+				 )
+				```
+
+		calculationItem Month-to-Date = ```
+				
+				 CALCULATE(
+				     SELECTEDMEASURE(),
+				     DATESMTD('DimDate'[FullDate])
+				 )
+				```
+
+		calculationItem 'Previous Year' = ```
+				
+				 CALCULATE(
+				     SELECTEDMEASURE(),
+				     PREVIOUSYEAR('DimDate'[FullDate])
+				 )
+				```
+
+		calculationItem 'Year-over-Year Growth' = ```
+				
+				 VAR MeasurePriorYear =
+				     CALCULATE(
+				         SELECTEDMEASURE(),
+				         SAMEPERIODLASTYEAR('DimDate'[FullDate])
+				     )
+				 RETURN
+				     DIVIDE(
+				         (SELECTEDMEASURE() - MeasurePriorYear),
+				         MeasurePriorYear
+				     )
+				```
+
+			formatStringDefinition = "0.##%"
+
+	column 'Time Period'
+		dataType: string
+		lineageTag: 6f2978bf-5adf-4c46-9d13-7b0749b69fde
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		formatString: 0
+		lineageTag: c240ff6b-15c7-4054-b2c1-2a7e06467932
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

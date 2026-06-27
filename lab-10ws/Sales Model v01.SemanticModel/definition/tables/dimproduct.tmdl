@@ -1,0 +1,59 @@
+table dimproduct
+	lineageTag: bd63e65e-7ea0-4c93-87c4-4b34a44b15c7
+	sourceLineageTag: [dbo].[dimproduct]
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a95e16ae-86af-4653-a482-f11ef1623b22
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: 3b7b24bf-3f74-415d-8c6d-00ab71d9a48c
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 03d21ca8-f6fe-4892-a512-1ce7b3f86416
+		sourceLineageTag: Category
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategory
+		dataType: string
+		lineageTag: 8ac788fa-8a37-4ef9-ac54-a1ed94e12a3c
+		sourceLineageTag: Subcategory
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column ListPrice
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: f4d75f7c-8c61-436b-816b-1912b845d10f
+		sourceLineageTag: ListPrice
+		summarizeBy: none
+		sourceColumn: ListPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition dimproduct = entity
+		mode: directLake
+		source
+			entityName: dimproduct
+			expressionSource: 'DirectLake - SalesLakehouse'
+

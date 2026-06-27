@@ -1,0 +1,322 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "1c0689a513b77c16e47c",
+  "position": {
+    "x": 10,
+    "y": 0,
+    "z": 0,
+    "height": 273,
+    "width": 771,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dimdate"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "dimdate.Year",
+              "nativeQueryRef": "Year"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Total Sales"
+                }
+              },
+              "queryRef": "factsales.Total Sales",
+              "nativeQueryRef": "Total Sales"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Total Cost"
+                }
+              },
+              "queryRef": "factsales.Total Cost",
+              "nativeQueryRef": "Total Cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Profit"
+                }
+              },
+              "queryRef": "factsales.Profit",
+              "nativeQueryRef": "Profit"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Profit Margin"
+                }
+              },
+              "queryRef": "factsales.Profit Margin",
+              "nativeQueryRef": "Profit Margin"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Sales YoY %"
+                }
+              },
+              "queryRef": "factsales.Sales YoY %",
+              "nativeQueryRef": "Sales YoY %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Sales QTD"
+                }
+              },
+              "queryRef": "factsales.Sales QTD",
+              "nativeQueryRef": "Sales QTD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Sales YTD"
+                }
+              },
+              "queryRef": "factsales.Sales YTD",
+              "nativeQueryRef": "Sales YTD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Sales MTD"
+                }
+              },
+              "queryRef": "factsales.Sales MTD",
+              "nativeQueryRef": "Sales MTD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Sales PY"
+                }
+              },
+              "queryRef": "factsales.Sales PY",
+              "nativeQueryRef": "Sales PY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "factsales"
+                    }
+                  },
+                  "Property": "Sales YoY Growth"
+                }
+              },
+              "queryRef": "factsales.Sales YoY Growth",
+              "nativeQueryRef": "Sales YoY Growth"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6845f622a8261a8b71c0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Total Sales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "517814afd7b31d1d0886",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Total Cost"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "475e6299d328c2c18ced",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Profit"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a4eb1b9db3e329b43097",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Profit Margin"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "355fe8fd030e000ca933",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Sales YoY %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "02876e71a116051d6ce6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Sales QTD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2e94aec861ed250a45d0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Sales YTD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "45cc3c0d1e50d0216152",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Sales MTD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "368b0970dcd3084edabe",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Sales PY"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8e106b60045e29d95059",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "factsales"
+              }
+            },
+            "Property": "Sales YoY Growth"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

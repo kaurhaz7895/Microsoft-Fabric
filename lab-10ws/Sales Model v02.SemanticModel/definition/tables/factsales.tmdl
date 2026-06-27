@@ -1,0 +1,171 @@
+table factsales
+	lineageTag: bf2687a8-84c6-4330-b9e8-69438c8a5422
+	sourceLineageTag: [dbo].[factsales]
+
+	measure 'Total Sales' = SUM(FactSales[SalesAmount])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: c5bddcab-0da1-4e10-b0a4-eeb41b1f7004
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Cost' = SUM(FactSales[TotalCost])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 6ff3dbb7-9c66-44a8-baac-8f1ae71e3347
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure Profit = ```
+			
+			 VAR TotalRevenue = [Total Sales]
+			 VAR TotalExpense = [Total Cost]
+			 RETURN
+			     TotalRevenue - TotalExpense
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bca8194f-49d2-4983-8311-4587a6eaa8b0
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Profit Margin' = ```
+			
+			 VAR ProfitAmount = [Profit]
+			 VAR TotalRevenue = [Total Sales]
+			 RETURN
+			     DIVIDE(ProfitAmount, TotalRevenue)
+			```
+		lineageTag: cc0051f4-904e-49a0-b3ef-7520360ea826
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sales by Ship Date' = ```
+			
+			 CALCULATE(
+			     [Total Sales],
+			     USERELATIONSHIP(FactSales[ShipDateKey], DimDate[DateKey])
+			 )
+			```
+		lineageTag: c16e2b03-a1f7-47f6-baed-269a032527ea
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SalesOrderNumber
+		dataType: string
+		lineageTag: 9c93247f-13d6-460d-b1a3-7ca029c3a5bf
+		sourceLineageTag: SalesOrderNumber
+		summarizeBy: none
+		sourceColumn: SalesOrderNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrderLineNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: b0c3aee4-91d4-4ef4-ba17-6cdc7e0db2dc
+		sourceLineageTag: SalesOrderLineNumber
+		summarizeBy: sum
+		sourceColumn: SalesOrderLineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ffca2221-b427-4bb0-8bf6-d184de10714d
+		sourceLineageTag: OrderDateKey
+		summarizeBy: none
+		sourceColumn: OrderDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b8f0ecb-511d-4321-adbf-409aa4da1c14
+		sourceLineageTag: ShipDateKey
+		summarizeBy: count
+		sourceColumn: ShipDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: fa10a409-81f8-46c6-a33a-1ee299849830
+		sourceLineageTag: CustomerKey
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f023287-087b-4337-80df-f70e796e5a1b
+		sourceLineageTag: ProductKey
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: d516e926-06ef-425f-a71c-6f27416172be
+		sourceLineageTag: Quantity
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 239770bc-fc7e-4fe7-a05e-be5bfff58a4b
+		sourceLineageTag: UnitPrice
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column SalesAmount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2e5d3ce3-f718-4549-aef9-e42bdd566bdf
+		sourceLineageTag: SalesAmount
+		summarizeBy: sum
+		sourceColumn: SalesAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column TotalCost
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 188f172e-68e8-410e-9f9b-daf9cd41cfa8
+		sourceLineageTag: TotalCost
+		summarizeBy: sum
+		sourceColumn: TotalCost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition factsales = entity
+		mode: directLake
+		source
+			entityName: factsales
+			expressionSource: 'DirectLake - SalesLakehouse'
+

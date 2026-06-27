@@ -1,0 +1,21 @@
+relationship 121e3119-b5d2-b140-2b64-b0ddd34231f9
+	relyOnReferentialIntegrity
+	fromColumn: factsales.OrderDateKey
+	toColumn: dimdate.DateKey
+
+relationship 04435e1b-00eb-a474-efaf-9c9cf92edc0f
+	relyOnReferentialIntegrity
+	fromColumn: factsales.CustomerKey
+	toColumn: dimcustomer.CustomerKey
+
+relationship f31edb27-58e3-ecaa-77f4-629b0f057bd1
+	relyOnReferentialIntegrity
+	fromColumn: factsales.ProductKey
+	toColumn: dimproduct.ProductKey
+
+relationship 8e136517-8eee-e23a-85c0-14582b846e2b
+	isActive: false
+	relyOnReferentialIntegrity
+	fromColumn: factsales.ShipDateKey
+	toColumn: dimdate.DateKey
+
