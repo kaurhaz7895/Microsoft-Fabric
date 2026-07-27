@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definitionProperties/2.0.0/schema.json",
+  "version": "4.0",
+  "datasetReference": {
+    "byConnection": {
+      "connectionString": "Data Source=\"powerbi://api.powerbi.com/v1.0/myorg/TCS-Day1 - WS\";initial catalog=\"NewSMSales Model\";integrated security=ClaimsToken;semanticmodelid=94e264ab-96ed-480b-8141-d9303fa7d1a3"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+table HackneyLicense
+	lineageTag: 1c2dff6f-6e7e-4f76-9a7f-01455011076d
+	sourceLineageTag: [dbo].[HackneyLicense]
+
+	column HackneyLicenseID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3b36a029-5a58-49d0-a536-b3dd158f6c07
+		sourceLineageTag: HackneyLicenseID
+		summarizeBy: none
+		sourceColumn: HackneyLicenseID
+
+		annotation SummarizationSetBy = Automatic
+
+	column HackneyLicenseBKey
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: f6bafc9a-88ac-44ad-a8e2-bcebe3658fba
+		sourceLineageTag: HackneyLicenseBKey
+		summarizeBy: none
+		sourceColumn: HackneyLicenseBKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column HackneyLicenseCode
+		dataType: string
+		sourceProviderType: varchar(50)
+		lineageTag: c5b0b922-0bdd-4caa-b3f3-ae8be936e94e
+		sourceLineageTag: HackneyLicenseCode
+		summarizeBy: none
+		sourceColumn: HackneyLicenseCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition HackneyLicense = entity
+		mode: directLake
+		source
+			entityName: HackneyLicense
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

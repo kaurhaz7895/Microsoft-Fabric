@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "TripSM"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "47e2a089-34ba-bda6-4d11-7b52f16720b2"
+  }
+}

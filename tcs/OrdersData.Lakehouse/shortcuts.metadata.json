@@ -1,0 +1,14 @@
+[
+  {
+    "name": "orders",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "b8aceae1-7be1-4816-932c-2932d630b790",
+        "location": "https://adlsgen2acc001.dfs.core.windows.net",
+        "subpath": "/public//orders"
+      }
+    }
+  }
+]

@@ -1,0 +1,24 @@
+relationship e271a4d8-6719-c265-e872-1e26be3c3b66
+	fromColumn: Trip.DateID
+	toColumn: Date.DateID
+
+relationship 0b23e4f4-2494-3a78-9927-27c56b7b6903
+	fromColumn: Trip.HackneyLicenseID
+	toColumn: HackneyLicense.HackneyLicenseID
+
+relationship daf936c9-5d70-fd52-5a89-4a2eccbca485
+	fromColumn: Trip.MedallionID
+	toColumn: Medallion.MedallionID
+
+relationship 7f9611f3-58a9-e0a3-ca17-92faccd0af6a
+	fromColumn: Trip.DropoffTimeID
+	toColumn: Time.TimeID
+
+relationship e14ae61e-8b94-52b5-4798-24d49f1ed711
+	fromColumn: Trip.DateID
+	toColumn: Weather.DateID
+
+relationship d9d89046-20b4-f07a-00ea-26e0d2d401bb
+	fromColumn: Trip.DropoffGeographyID
+	toColumn: Geography.GeographyID
+
